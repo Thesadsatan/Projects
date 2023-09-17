@@ -1,0 +1,654 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors */
+:root{
+    --main-color: rgb(117, 115, 115);
+    --secondary-color: rgb(52, 51, 51);
+    --bg-color: rgb(236, 232, 232);
+}
+
+/* buttons for authenticated home page  */
+.ctas{
+    width: 50%;
+    height: 50%;
+    transform: translateY(10%);
+}
+
+/* Display 2 review buttons and 2 new buttons */
+.review-btns, .new-btns{
+    display: flex;
+}
+
+.review-btn, .new-btn, .generate-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-btn, .new-btn {
+    width: 50%;
+}
+
+.cta{
+    cursor: pointer;
+    height: 10vh;
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+    margin: 2px;
+    background-color: var(--main-color);
+    color: white;
+    text-decoration: none;
+    transition: color 0.4s linear;
+    /* position: relative; */
+    overflow: hidden;
+}
+
+/* Review btn Hover is seperated from New btn hover due to the slight difference in the color  */
+.review-btn:hover{
+    color: white;
+    box-shadow: 0 0 0.6rem rgba(117, 115, 115, 0.468);
+    transform: scale(1.01);
+
+}
+/* New btn hover is seperated from  Review btn Hover due to the slight difference in the color  */
+.new-btn:hover{
+    color: white;
+    box-shadow: 0 0 0.6rem rgba(117, 115, 115, 0.756);
+    transform: scale(1.01);
+}
+
+.generate-btn:hover{
+    color: white;
+    box-shadow: 0 0 0.6rem var(--main-color);
+    transform: scale(1.01);
+}
+
+/* Slightly differnet color than new btn */
+.review-btn{
+    background-color: rgba(117, 115, 115, 0.468);
+    border: rgba(117, 115, 115, 0.468);
+}
+
+/* Slightly differnet color than review btn */
+.new-btn{
+    background-color: rgba(117, 115, 115, 0.756);
+    border: rgba(117, 115, 115, 0.756);
+}
+
+.navbar-custom {
+    height: 10vh;
+    width: 85%;
+    margin-left: 7.5%;
+    align-items: center;
+    background: transparent;
+    transform: translateY(2px);
+    z-index: 2;
+}
+
+.nav-link{
+    color: var(--secondary-color);
+}
+
+.nav-link:hover{
+    color: var(--secondary-color);
+}
+
+.nav-btns{
+    padding-left: 4%;
+}
+
+.logo{
+    margin-right: 0.5rem;
+    text-shadow: 3px 3px rgba(117, 115, 115, 0.429);
+    transform: rotate(30deg);
+    color: var(--main-color);
+}
+
+section{    
+    height: 100vh;
+    width: 100%;
+}
+
+.landing-page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    z-index: -1;
+}
+
+.landing-page-authenticated{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    z-index: -1;
+}
+
+.about-container{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    min-height: 100vh;
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+}
+
+.front-page{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} 
+
+
+.new-quote-form{
+    min-width: 40rem 50%;
+    height: 50%;
+}
+
+.review-quotes-none, .review-words-none{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.form-control{
+    border-color: var(--main-color);
+    width: 20vw;
+    min-width: 15rem;
+}
+
+.new-quote-form-control{
+    width: 100%;
+}
+
+.author-source{
+    display: flex;
+    justify-content: space-between;
+}
+
+.author-source > *{
+    width: 49%; 
+
+}
+
+
+.form-control:focus{
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.form-btns{
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    width: 100%;
+}
+
+.form-btns:hover{
+    background-color: white;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    transition: 0.7s;
+}
+
+.form-text a{
+    position: relative;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.form-text a::after{
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 0;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: 0.5s;
+}
+
+.form-text a:hover::after{
+    width: 100%;
+}
+
+.custom-section {
+    position: absolute; 
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    padding-left: 4%;
+    padding-right: 1rem;
+    border-right: 1px solid white;
+    text-align: start;
+    width: 50%;
+}
+
+.left h3{
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-style: oblique;
+    font-weight: bolder;
+    color: rgba(25, 24, 24, 0.489);          
+}
+
+.sign-in-btn, .sign-up-btn, .nav-btn{
+    position: relative;
+}
+
+.sign-in-btn::before, .logout-btn::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 1px;
+    height: 1rem;
+    background-color: var(--main-color);
+    transform: translateY(-40%);
+}
+
+.nav-btn::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 0;
+    height: 3px;
+    background-color: var(--main-color);
+    transition: 0.5s;
+}
+
+.nav-btn:hover::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 3px;
+    background-color: var(--main-color);
+}
+
+.quote-container{
+    display: block;
+    margin: 2.5rem;
+    width: 50%;
+    text-align: center; 
+}
+
+.quote-container h3{
+    margin-bottom: 4rem;
+}
+
+.author {
+    position: relative;
+    margin-top: 2rem;
+    font-style: italic;
+    margin-right: 3rem;
+    text-align: end;
+}
+
+.author::before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 0.5rem;
+    top: 50%;
+    margin-left: -1rem;
+    background-color: black;
+}
+
+.review-sec-container{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    min-width: 20rem;
+    margin: auto;   
+    border-radius: 8px;
+    border: 1px solid rgba(117, 115, 115, 0.468);
+    box-shadow: 0 0 16px rgba(117, 115, 115, 0.468);
+}
+
+.review-sec-container:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.text-area-review-quote{
+    padding: 2rem;
+}
+
+.author-source-quote-review{
+    display: flex;
+    justify-content: end;
+}
+
+.icons{
+    display: flex;
+    padding-top: 8px;
+    height: 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+li{
+    list-style: none;  
+    align-items: center; 
+    color: var(--main-color); 
+
+}
+
+.icon{
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon a, .icon a:hover{
+    color: var(--main-color); 
+
+}
+
+.generate-btn{
+    margin-bottom: 0;
+    border: solid var(--main-color);
+    background-color: var(--main-color);
+    border-radius: 0.5rem;
+    padding: 0 1rem 0 1rem ;
+}
+
+.nav-container{
+    width: 100%;
+}
+
+.scrolled{
+    display: none;
+}
+
+.line{
+    content: "";
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: rgba(117, 115, 115, 0.468);
+}
+
+.generate{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grbtn{
+    border-radius: 8px;
+    width: 40%;
+    min-width: 20rem;
+    box-shadow: 0 0 16px rgba(117, 115, 115, 0.468);
+}
+
+.review-word-container {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+    min-width: 20rem;
+    margin: auto;   
+    border-radius: 8px;
+    border: 1px solid rgba(117, 115, 115, 0.468);
+    box-shadow: 0 0 16px rgba(117, 115, 115, 0.468);
+
+}
+
+.word-box{
+    border-radius: 8px;
+    border: 1px solid rgba(117, 115, 115, 0.468);
+    width: 95%;
+    padding: 5px 8px 5px 8px;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+.syn-pos-box {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+
+}
+
+.syn-pos-box >* {
+    width: 49%;
+    justify-content: space-between;
+
+}
+
+.word-containers{
+    border: 1px solid rgba(117, 115, 115, 0.468);
+    border-radius: 8px;
+    padding: 5px 8px 5px 8px;
+    margin-top: 0.5rem;
+    width: 100%;
+
+}
+
+.box small{
+    padding-left: 5px;
+}
+
+.fa fa-bookmark{
+    color: white;
+}
+
+.custom-nav-mob{
+    display: none;
+}
+
+.links{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    transform: translateX(100%);
+    z-index: 5;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+} 
+
+.footer > *{
+    margin: 3px;
+}
+
+.pages{
+    background-color: white;
+    border-color: var(--main-color);
+    color: var(--main-color);
+    transition: 0.5s;
+}
+
+.current-page{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: white;
+}
+
+.pages:hover{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: white;
+    transition: 0.5s;
+}
+
+.about-quote, .about-word{
+    display: flex;
+}
+
+.about-word img, .about-quote-grquote, .about-quote-text{
+    width: 50%;
+}
+
+.grquote-home-page{
+    width: 100%;
+}
+
+.about-word-text, .about-quote-text{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+
+
+@media (max-width: 1050px) {
+    
+    .landing-page{
+        height: 250vh;
+    }
+    
+    .about{
+        padding-bottom: 50px;
+    }
+
+    .about-quote-text {
+        display: none;
+    }
+    
+    .about-word, .about-quote{
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: var(--bg-color);
+    }
+
+    .about-word img, .about-quote-grquote{
+        width: 100%;
+    }
+
+    .nav-container{
+        display: none;
+    }
+
+    .custom-nav-mob{
+        display: flex;
+        justify-content: space-between;
+        padding: 2em;
+    }
+
+    .nav-btns{
+        display: none;
+    }
+
+    .sign-in-btn::before, .logout-btn::before{
+        display: none;
+    }
+
+    .front-page{
+        margin-top: 10rem;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .left{
+        height: 50%;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        border: none;
+    }
+
+    .left h3{
+        padding: 0.5rem;
+    }
+
+    .quote-container{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .review-btns, .new-btns{
+        flex-direction: column;
+    }
+
+    .cta{
+        width: 100%;
+    }
+
+    .author-source{
+        flex-direction: column-reverse;
+    }
+
+    .author-source >*{
+        width: 100%;
+        margin-top: 5px;
+    }
+
+} 

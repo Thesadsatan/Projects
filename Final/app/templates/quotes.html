@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Home 
+{% endblock %}
+
+{% block main %}
+        <section class="review-quote">
+        {% if books | length %}
+            {% for book in books %}
+                <!-- <div class="row justify-content-center">
+                    <div class="col-6 mb-4">
+                        " {{ book.content }}. " 
+                        <br>- {{ book.author }}, {{ book.title }} 
+                    </div>
+                </div> -->
+
+                <div class="quote-container">
+                        <i class="fas fa-quote-left left-quote"></i>
+                        <p class="random-quote">
+                            {{ book.content }}
+                        </p>
+                        <i class="fas fa-quote-right right-quote"></i>
+                        <p class="author">{{ book.author }}</p>
+                        <p class="author">{{ book.author }}</p>
+                </div>
+            <!-- <form action="{{ url_for('delete_quote', book_id=book.id) }}" method="POST">
+            <a class="btn btn-primary col-1" href="{{ url_for('update_book', book_id=book.id) }}">Edit</a>
+            <input class="btn btn-danger col-1" type="submit" value="Delete">
+            <a class="btn btn-secondary col-1" href="{{ url_for('learnt_book', book_id=book.id) }}">Learnt</a>
+            </form> -->
+            {% endfor %}
+        {% else %}
+            <!-- <div class="review-quotes-none"> -->
+                <p>No Quotes.</p>
+            <!-- </div> -->
+        {% endif %}
+    </section>
+{% endblock %}
+

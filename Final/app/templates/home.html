@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Home 
+{% endblock %}
+
+{% block main %}
+
+
+    {% if current_user.is_authenticated %}
+    <section class="landing-page-authenticated">
+        <div class="ctas">
+            <div class="review-btns">
+                <a class="review-btn cta" href="{{ url_for('quotes_review')}}">Review Quotes</a>
+                <a class="review-btn cta" href="{{ url_for('word_review')}}">Review Vocab</a>
+            </div>
+            <div class="new-btns">
+                <a class="new-btn cta" href="{{ url_for('new_quote') }}">New Quote</a>
+                <a class="new-btn cta" href="{{ url_for('new_word') }}">New Vocab</a>
+            </div>
+            <a class="generate-btn cta" href="{{ url_for('random_quote') }}">Generate Quote</a>
+        </div>
+    </section>
+    {% else %}
+    <section class="landing-page">
+        <div class="front-page mb-5">
+            <div class="left">
+                <h3 class="h1">
+                    Generate random Quotes
+                </h3>
+                <h3 class="h2">
+                    Save your favorite Quote
+                </h3>
+                <h3 class="h3">
+                    Learning a new language?
+                </h3>
+                <h3 class="h4">
+                    build up your own dictionary
+                </h3>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="quote-container">
+                <h3>Quotes of the Day</h3>
+                    <i class="fas fa-quote-left left-quote"></i>
+                    <p class="random-quote">
+                    </p>
+                    <i class="fas fa-quote-right right-quote"></i>
+                    <p class="author" id="author"></p>    
+            </div>
+        </div>
+        <div class="about" id="about">
+            <div class="about-container">
+                <!-- <!-- <div class="about-text"> -->
+                    <div class="about-quote mb-5">
+
+                                <div class="container about-quote-grquote">
+                                    <div class="review-sec-container grquote-home-page mb-3">
+                                        <div class="text-area-review-quote">
+                                            <i class="fas fa-quote-left left-quote"></i>
+                                            <p id="gr-quote"></p>
+                                            <i class="fas fa-quote-right right-quote"></i>
+                                        </div>
+                                        <div class="author-source-quote-review">
+                                                <p class="author" id="gr-author"></p>
+                                        </div>
+                                        <div class="line"></div>
+                                        <ul class="icons">
+                                            <li class="icon"><i class="fa fa-copy copy-btn" data-toggle="tooltip" title="copy"></i></li>
+                                        </ul>
+                                    </div>
+                                    <button class="grbtn grquote-home-page btn btn-outline-info form-btns" id="generate-btn">Generate a random Quote</button>
+  
+                            </div>
+                        <div class="about-quote-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint distinctio rerum minima reprehenderit eos voluptatem incidunt. Quod, asperiores officia assumenda nihil eaque inventore sequi exercitationem nisi voluptate, tempore labore repellat.
+                        </div>
+                    </div>
+                    <div class="about-word">
+                        <img src="../static/home-page-word.png" alt="Quodophile">
+                        <div class="about-word-text mb-4">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error aut quae architecto, deleniti iure totam impedit nostrum sunt fugiat, aspernatur excepturi veniam culpa quisquam assumenda, iste blanditiis ullam molestiae. Voluptatem?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif%}
+        </section>  
+{% endblock %}

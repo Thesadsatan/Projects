@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Login 
+{% endblock %}
+<!-- mx-auto w-auto -->
+{% block main %}
+          <section class="custom-section">
+          <form class="register-form" method="POST" action="/register">   
+               {{ form.hidden_tag() }}            
+               <div class="mb-4">
+                    {% if form.username.errors %}
+                         {{ form.username(class="form-control is-invalid mx-auto ", placeholder="Username") }}
+                         <div class="invalid-feedback">
+                              {% for error in form.username.errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}     
+                         {{ form.username(class="form-control mx-auto " , placeholder="Username") }}
+                    {% endif %}
+               </div>
+               <div class="mb-4">
+                    {% if form.email.errors %}
+                         {{ form.email(class="form-control is-invalid mx-auto ", placeholder="Email") }}
+                         <div class="invalid-feedback">
+                              {% for error in form.email.errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}     
+                         {{ form.email(class="form-control mx-auto  ", placeholder="Email") }}
+                    {% endif %}
+               </div>
+               <div class="mb-4">
+                    {% if form.password.errors %}
+                         {{ form.password(class="form-control is-invalid mx-auto ", placeholder="Password") }}
+                         <div class="invalid-feedback">
+                              {% for error in form.password.errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}     
+                         {{ form.password(class="form-control mx-auto ", placeholder="Password") }}
+                    {% endif %}
+
+               </div>
+               <div class="mb-4">
+                    {% if form.confirmation.errors %}
+                         {{ form.confirmation(class="form-control is-invalid mx-auto ", placeholder="Confirmation") }}
+                         <div class="invalid-feedback">
+                              {% for error in form.confirmation.errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}     
+                         {{ form.confirmation(class="form-control mx-auto ", placeholder="Confirmation") }}
+                    {% endif %}
+
+               </div>
+               <div class="form-group mb-4">
+                    {{ form.submit(class="btn btn-outline-info form-btns") }}
+               </div>
+               <div class="form-group">
+                <small class="form-text text-muted">Already have an Account? <a href="{{ url_for('login') }}">Sign in</a></small>
+               </div>
+               
+          </form>
+     </section>
+{% endblock %}
+

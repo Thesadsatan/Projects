@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Words 
+{% endblock %}
+
+{% block main %}
+        
+        {% if words.items %}
+                {% for word in words.items %}
+
+                    <div class="review-word-container mb-4 mt-5">
+                        <div class="word-box mb-3">
+                                {{ word.word }}
+                        </div>
+                        <div class="syn-pos-box mb-3">
+                            <div class="box">
+                                <small>Synonym: </small>
+                                {% if word.synonym | length %}
+                                    <div class="word-containers"> {{ word.synonym }} </div>
+                                {% endif %}
+                            </div>
+                            <div class="box">
+                                <small>Part of Speech: </small>
+                                {% if word.part_of_speech | length %}
+                                    <div class="word-containers"> {{ word.part_of_speech }} </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="syn-pos-box def-ex mb-3">
+                            <div class="box">
+                                <small>Definition: </small>
+                                {% if word.definition | length %}
+                                    <div class="word-containers"> {{ word.definition }} </div>
+                                {% endif %}
+                            </div>
+                            <div class="box">
+                                <small>Example: </small>
+                                {% if word.example | length %}
+                                    <div class="word-containers"> {{ word.example }} </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                            <ul class="icons">
+                                <li class="icon"><a href="{{ url_for('delete_word', word_id=word.id) }}"><i class="fa fa-trash" data-toggle="tooltip" title="delete"></i></a></li>
+                                <li class="icon"><a href="{{ url_for('update_word', word_id=word.id) }}"><i class="fa fa-edit" data-toggle="tooltip" title="edit"></i></a></li>
+                                <li class="icon"><i class="fa fa-copy copy-btn" data-toggle="tooltip" title="copy"></i></li>
+                            </ul>
+                    </div>
+                {% endfor %}
+                <div class="footer mb-3">
+                    {% for footer in words.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                        {% if footer %}
+                            {% if footer == words.page %}
+                                <a class="btn btn-outline-info pages current-page " href="{{ url_for('word_review', page=footer)}}"> {{ footer }} </a>
+                            {% else %}
+                                <a class="btn btn-outline-info pages  " href="{{ url_for('word_review', page=footer)}}"> {{ footer }} </a>
+                            {% endif %}
+                        {% else %}
+                            ...
+                        {% endif %}
+                    {% endfor %}
+                </div>
+        {% else %}
+            <div class="review-quotes-none">
+                <p>No Words.</p>
+            </div>
+        {% endif %}
+
+{% endblock %}
+

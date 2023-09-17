@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Words 
+{% endblock %}
+
+{% block main %}
+        
+
+        {% if words | length %}
+
+            {% for word in words %}
+                <div class="row justify-content-center">
+                    <div class="col-6 mb-4">
+                        {{ word.word }}: {{ word.content }}
+
+                    </div> 
+                    <!-- <a href="{{ url_for('update_word', word_id=word.id) }}">Edit</a>  -->
+                    <form action="{{ url_for('delete_word', word_id=word.id) }}" class="mb-3" method="POST">
+                        <a class="btn btn-primary col-1" href="{{ url_for('update_word', word_id=word.id) }}">Edit</a> 
+                        <input class="btn btn-danger col-1" type="submit" value="Delete">
+                        <a class="btn btn-secondary col-1" href="{{ url_for('learnt_word', word_id=word.id) }}">Learnt</a>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+                <div class="row justify-content-center">
+                    <div class="col-6 mb-4">
+                        No Words.
+                    </div>
+                </div>
+        {% endif %}
+
+{% endblock %}
+

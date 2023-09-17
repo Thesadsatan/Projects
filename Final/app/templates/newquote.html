@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     New Quote 
+{% endblock %}
+
+{% block main %}
+    <section class="custom-section">
+        <form class="new-quote-form" method="POST" action="">
+                {{ form.hidden_tag() }}
+                 
+                <div class="mb-2 author-source">
+
+                    {{ form.title(class="form-control new-quote-form-control", id="username",placeholder="Source") }}
+                    {{ form.author(autocomplete="off", class="form-control new-quote-form-control", id="username", placeholder="Author") }}
+                </div>            
+                <div class="mb-2">
+                    {{ form.content(class="form-control new-quote-form-control", id="exampleFormControlTextarea1", rows="3", placeholder="Quote ...") }}
+                </div>
+                <div class="form-group">
+                <!-- {{ form.submit(class="btn btn-primary new-quote-input form-control") }}     -->
+                {{ form.submit(class="btn btn-outline-info form-btns") }}
+            </div>
+        </form>
+    </section>
+{% endblock %}
+

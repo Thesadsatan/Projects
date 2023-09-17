@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Reset
+{% endblock %}
+
+{% block main %}
+
+     <section class="custom-section">
+
+          <form method="POST" class="reset-form" action="">
+               {{ form.hidden_tag() }}                
+               <div class="mb-4">
+                    {% if form.email.errors %}
+                         {{ form.email(class="form-control mx-auto", placeholder="Email") }}
+                         <div class="invalid_feedback">
+                              {% for error in errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}
+                    {{ form.email(class="form-control mx-auto", placeholder="Email") }}
+                    {% endif %}
+               </div>
+               <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info form-btns") }}
+               </div>       
+
+           </form>
+     </section>
+{% endblock %}
+

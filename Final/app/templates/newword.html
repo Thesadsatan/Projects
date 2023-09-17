@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     New Word 
+{% endblock %}
+
+{% block main %}
+    <section class="custom-section">
+        <form class="new-quote-form" method="POST" action="">
+            {{ form.hidden_tag() }}     
+                <div class="mb-2">
+                    {{ form.word(class="form-control new-quote-form-control ", id="username",placeholder="word or expression") }}
+                </div>
+                <div class="mb-2 author-source">
+                    {{ form.synonym(class="form-control new-quote-form-control ", id="username",placeholder="part of speech") }}
+                    {{ form.part_of_speech(class="form-control new-quote-form-control ", id="username",placeholder="synonym") }}
+                </div>
+                <div class="mb-2 author-source">
+                    {{ form.definition(class="form-control new-quote-form-control ", id="exampleFormControlTextarea1", rows="3", placeholder="definition") }}
+                    {{ form.example(class="form-control new-quote-form-control ", id="exampleFormControlTextarea1", rows="3", placeholder="example") }}
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="form-control btn form-btns") }}     
+                </div>
+        </form>
+    </section>
+{% endblock %}
+

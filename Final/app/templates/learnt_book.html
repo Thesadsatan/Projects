@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Home 
+{% endblock %}
+
+{% block main %}
+        {% if books.items %}
+            {% for book in books.items %}
+
+                <div class="review-sec-container mb-4 mt-4">
+                    <div class="text-area-review-quote">
+                        <i class="fas fa-quote-left left-quote"></i>
+                        <p id="review-quote-text">
+                            {{ book.content }}
+                        </p>
+                        <i class="fas fa-quote-right right-quote"></i>
+                    </div>
+                    <div class="author-source-quote-review">
+                        {% if book.author | length %}
+                            <p class="author">{{ book.author }}</p>
+                        {% endif %}
+                        {% if book.title | length %}
+                            <p class="author">{{ book.title }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="line"></div>
+                        <ul class="icons">
+                            <li class="icon"><a href="{{ url_for('delete_quote', book_id=book.id) }}"><i class="fa fa-trash" data-toggle="tooltip" title="delete"></i></a></li>
+                            <li class="icon"><a href="{{ url_for('update_book', book_id=book.id) }}"><i class="fa fa-edit" data-toggle="tooltip" title="edit"></i></a></li>
+                            <li class="icon"><i class="fa fa-copy copy-btn" data-toggle="tooltip" title="copy"></i></li>
+                        </ul>
+                </div>
+            {% endfor %}
+            <div class="footer mb-3">
+                {% for footer in books.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if footer %}
+                        {% if books.page == footer %}
+                            <a class="btn btn-outline-info pages current-page " href="{{ url_for('quotes_review', page=footer)}}"> {{ footer }} </a>
+                        {% else %}
+                            <a class="btn btn-outline-info pages  " href="{{ url_for('quotes_review', page=footer)}}"> {{ footer }} </a>
+                        {% endif %}
+                    {% else %}
+                        ...
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="review-quotes-none">
+                <p>No Quotes.</p>
+            </div>
+        {% endif %}
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Generate random Quotes
+{% endblock %}
+
+{% block main %}
+    <section class="generate">
+
+        <div class="container">
+            <div class="review-sec-container mb-3">
+                <div class="text-area-review-quote">
+                    <i class="fas fa-quote-left left-quote"></i>
+                    <p id="gr-quote"></p>
+                    <i class="fas fa-quote-right right-quote"></i>
+                </div>
+                <div class="author-source-quote-review">
+                        <p class="author" id="gr-author"></p>
+                </div>
+                <div class="line"></div>
+                <ul class="icons">
+                    <li class="icon"><a href=""><i class="fa fa-trash" data-toggle="tooltip" title="delete"></i></a></li>
+                    <li class="icon"><i class="fa fa-copy copy-btn" data-toggle="tooltip" title="copy"></i></li>
+                    <li class="icon"><i class="fa fa-bookmark" id="add-to-db" data-toggle="tooltip" title="save to Quotes"></i></li>
+                    
+                </ul>
+            </div>
+            <button class="grbtn btn btn-outline-info form-btns" id="generate-btn">Generate a random Quote</button>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     Login 
+{% endblock %}
+
+{% block main %}
+
+     <section class="custom-section">
+
+          <form class="login-form" method="POST" action="/login">
+               {{ form.hidden_tag() }}               
+               <div class="mb-4">
+                    {% if form.username.errors %}
+                         {{ form.username(class="form-control is-invalid mx-auto ", placeholder="Username") }}
+                         <div class="invalid-feedback">
+                              {% for error in form.username.errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}     
+                         {{ form.username(class="form-control mx-auto ", placeholder="Username") }}
+                    {% endif %}
+               </div>
+               <div class="mb-4">
+                    {% if form.password.errors %}
+                         {{ form.password(class="form-control is-invalid mx-auto ", placeholder="Password") }}
+                         <div class="invalid-feedback">
+                              {% for error in form.password.errors %}
+                                   <span> {{ error }} </span>
+                              {% endfor %}
+                         </div>
+                    {% else %}     
+                         {{ form.password(class="form-control mx-auto ", placeholder="Password") }}
+                    {% endif %}
+               </div>
+               <div class="form-group mb-3">
+                    {{ form.submit(class="btn btn-outline-info form-btns") }}
+               </div>
+               <div class="form-group">
+                <small class="form-text text-muted"><a href="{{ url_for('reset') }}">Forgot Password?</a></small>
+               </div>
+           </form>
+     </section>
+{% endblock %}
+
