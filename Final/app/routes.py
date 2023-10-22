@@ -230,7 +230,7 @@ def send_email(user):
 
     token = user.get_reset_token()
     msg = Message('Reset Your Password', 
-                  sender='quodophile.noreply@gmail.com',
+                  sender='noreply.quodophile@gmail.com',
                   recipients=[user.email])
 
     msg.body = f''' Click on the link to reset your password:
